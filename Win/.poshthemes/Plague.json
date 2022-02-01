@@ -1,0 +1,115 @@
+{
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "session",
+          "style": "diamond",
+          "foreground": "#ff0000",
+          "background": "#333333",
+          "leading_diamond": "\uE0B6",
+          "trailing_diamond": "\uE0B0"
+        },
+		{
+		  "type": "os",
+		  "style": "powerline",
+		  "powerline_symbol": "\uE0B0",
+		  "foreground": "#26C6DA",
+		  "background": "#546E7A"
+		},
+		{
+          "type": "root",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#d48d00"
+        },
+		{
+          "type": "shell",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#203248",
+          "properties": {
+            "prefix": " \uFCB5 "
+          }
+        },
+        {
+          "type": "path",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#000000",
+          "background": "#ff0000",
+          "properties": {
+            "prefix": " \uE5FF ",
+            "style": "full"
+          }
+        },
+        {
+          "type": "git",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#acabaa",
+          "background": "#1a1c1e",
+          "properties": {
+            "display_stash_count": true,
+            "display_upstream_icon": true
+          }
+        },
+        {
+          "type": "node",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#025800",
+          "properties": {
+            "prefix": " \uE718 ",
+			"display_version": false
+          }
+        },
+		        {
+          "type": "python",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#100e23",
+          "background": "#906cff",
+          "properties": {
+            "prefix": " \uE235 "
+          }
+        },
+        {
+          "type": "spotify",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#434343",
+          "background": "#1BD760",
+          "properties": {
+            "prefix": " \uF9C6 ",
+			"playing_icon": "\uE602 ",
+			"paused_icon": "\uF8E3 ",
+			"stopped_icon": "\uF04D ",
+			"track_separator" : " - "
+          }
+        },
+        {
+          "type": "exit",
+          "style": "diamond",
+          "foreground": "#18D860",
+          "background": "#202020",
+          "leading_diamond": "",
+          "trailing_diamond": "\uE0B4",
+          "properties": {
+            "display_exit_code": false,
+            "always_enabled": true,
+            "error_color": "#f1184c",
+            "color_background": true,
+            "prefix": "<transparent>\uE0B0</> \uE36E"
+          }
+        }
+      ]
+    }
+  ],
+  "final_space": true
+}
