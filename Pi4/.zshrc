@@ -87,6 +87,7 @@ export LANG=en_US.UTF-8
 
 export EDITOR='micro'
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="/usr/bin:$PATH"
 export PATH="$PATH:/usr/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -111,16 +112,17 @@ alias ...='cd ../..' # very lazy
 alias ....='cd ../../..' # plus ultra lazy
 alias brootpi='br -d -s --show-root-fs -T' # navigate filesystem
 alias exa='exa -al -F -h --group-directories-first --color-scale' # like ls but better
+alias lsa='exa -al -F -h --group-directories-first --color-scale' # like ls but better alt
 alias ls='ls -aFhv --color=auto --group-directories-first' # better ls output
 alias update="sudo apt-get update && sudo apt-get upgrade" # shorter update
 alias derp='tldr $(fc -ln -1)' # when you forget a command
 alias cat='bat --theme="Visual Studio Dark+"' # pretty cat
 alias how='howdoi' # shorter howdoi
-alias hdi='howdoi' # shorter howdoi
+alias hdi='howdoi' # shorter howdoi alt
 alias howdoi='function hdi(){ howdoi $* -c -n 3; }; hdi' # when idk how to do things
-alias pls='please' # shorter please
-alias plz='please' # shorter please
 alias please='sudo $(fc -ln -1)' # rerun last command with sudo, good manners
+alias pls='please' # shorter please
+alias plz='please' # shorter please alt
 alias h='history' # shorter history
 alias c='clear' # shorter clear
 alias mkdir='mkdir -pv' # make directory and parent directories, verbose
@@ -140,6 +142,11 @@ alias 777='chmod -R 777' # set permissions to 777
 alias x='chmod +x' # make executable
 alias woman='eg' # like man
 alias eg='eg --pager-cmd "less -sR"' # get examples for how a command is used
+alias ytdl="yt-dlp" # easier to remember command to download a video from YouTube
+alias yta='_yta() { yt-dlp -f "ba" -x --audio-format mp3 "$1" -o "%(id)s.%(ext)s" ;}; _yta' # download audio only
+alias mcd='_mcd() { mkdir -p "$1" && cd "$1" ;}; _mcd' # make a directory and cd to it
+alias vlca='cvlc --no-video -q' # play audio only
+alias audio='cvlc --no-video -q' # play audio only alt
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
