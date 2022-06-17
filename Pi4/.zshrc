@@ -116,6 +116,7 @@ alias lsa='exa -al -F -h --group-directories-first --color-scale' # like ls but 
 alias ls='ls -aFhv --color=auto --group-directories-first' # better ls output
 alias update="sudo apt-get update && sudo apt-get upgrade" # shorter update
 alias derp='tldr $(fc -ln -1)' # when you forget a command
+alias child='tldr' # see man and woman
 alias cat='bat --theme="Visual Studio Dark+"' # pretty cat
 alias how='howdoi' # shorter howdoi
 alias hdi='howdoi' # shorter howdoi alt
