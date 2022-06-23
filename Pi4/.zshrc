@@ -94,7 +94,7 @@ export PATH="$PATH:/usr/sbin"
  if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='nano'
  else
-   export EDITOR='mousepad'
+   export EDITOR='code'
  fi
 
 # Compilation flags
@@ -106,57 +106,62 @@ export PATH="$PATH:/usr/sbin"
 # For a full list of active aliases, run `alias`.
 #
 # aliases
-alias ..='cd ..' # lazy
-alias ...='cd ../..' # very lazy
-alias ....='cd ../../..' # plus ultra lazy
-alias 777='chmod -R 777' # set permissions to 777
-alias audio='cvlc --no-video -q' # play audio only
-alias bashrc="nano ~/.bashrc" # edit bashrc
-alias brootpi='br -d -s --show-root-fs -T' # navigate filesystem
-alias c='clear' # shorter clear
-alias cat='bat --theme="Visual Studio Dark+"' # pretty cat
-alias cd..='cd ..' # fix typo
-alias child='tldr' # see man and woman
-alias cp="cp -i" # copy file interactively
+alias ..='cd .. ' # lazy
+alias ...='cd ../.. ' # very lazy
+alias ....='cd ../../.. ' # plus ultra lazy
+alias 777='chmod -R 777 ' # set permissions to 777
+alias audio='cvlc --no-video -q ' # play audio only
+alias bashrc="nano ~/.bashrc " # edit bashrc
+alias brootpi='br -d -s --show-root-fs -T ' # navigate filesystem
+alias c='clear ' # shorter clear
+alias cat='bat --theme="Visual Studio Dark+" ' # pretty cat
+alias cd..='cd .. ' # fix typo
+alias child='tldr ' # see man and woman
+alias cp="cp -i " # copy file interactively
 alias derp='tldr $(fc -ln -1)' # when you forget a command
-alias df='df -h --total' # human readable disk space usage
-alias edit='nano' # edit files
-alias eg='eg --pager-cmd "less -sR"' # get examples for how a command is used
-alias exa='exa -al -F -h --group-directories-first --color-scale' # like ls but better
-alias grep='grep -iI -P --exclude-dir=".git" --color=auto' # pretty grep
+alias df='df -h --total ' # human readable disk space usage
+alias edit='nano ' # edit files
+alias eg='eg --pager-cmd "less -sR" ' # get examples for how a command is used
+alias exa='exa -al -F -h --group-directories-first --color-scale ' # like ls but better
+alias grep='grep -iI -P --exclude-dir=".git" --color=auto ' # pretty grep
 alias h='history' # shorter history
-alias hdi='function hdi(){ howdoi $* -c -n 3; }; hdi' # shorter howdoi
-alias how='function hdi(){ howdoi $* -c -n 3; }; hdi' # shorter howdoi alt
-alias howdoi='function hdi(){ howdoi $* -c -n 3; }; hdi' # when idk how to do things
-alias hs='history | grep' # search command history
-alias jobs='jobs -l' # list jobs
-alias ln='ln -i' # link file interactively
-alias ls='ls -aFhv --color=auto --group-directories-first' # better ls output
-alias lsa='exa -al -F -h --group-directories-first --color-scale' # like ls but better alt
+alias hdi='function hdi(){ howdoi $* -a -c -n 3 ;}; hdi' # shorter howdoi
+alias how='function hdi(){ howdoi $* -a -c -n 3 ;}; hdi' # shorter howdoi alt
+alias howdoi='function hdi(){ howdoi $* -a -c -n 3 ;}; hdi' # when idk how to do things
+alias hs='history | grep ' # search command history
+alias jobs='jobs -l ' # list jobs
+alias ln='ln -i ' # link file interactively
+alias ls='ls -aFhv --color=auto --group-directories-first ' # better ls output
+alias lsa='exa -al -F -h --group-directories-first --color-scale ' # like ls but better alt
 alias mcd='_mcd() { mkdir -p "$1" && cd "$1" ;}; _mcd' # make a directory and cd to it
-alias mkdir='mkdir -pv' # make directory and parent directories, verbose
-alias mp3='cvlc --no-video -q *.mp3' # play mp3 audio with vlc
-alias mv="mv -i" # move file interactively
-alias path='echo $PATH | tr -s ":" "\n"' # pretty print the path
-alias ping='ping -c 5' # ping only 5 times then stop
+alias mkdir='mkdir -pv ' # make directory and parent directories, verbose
+alias mp3='cvlc --no-video -q *.mp3 ' # play mp3 audio with vlc
+alias mv="mv -i " # move file interactively
+alias path='echo $PATH | tr -s ":" "\n" ' # pretty print the path
+alias ping='ping -c 5 ' # ping only 5 times then stop
 alias please='sudo $(fc -ln -1)' # rerun last command with sudo, good manners
 alias pls='sudo $(fc -ln -1)' # shorter please
 alias plz='sudo $(fc -ln -1)' # shorter please alt
-alias ports='sudo lsof -i -P -n | grep LISTEN' # list ports in use
+alias ports='sudo lsof -i -P -n | grep LISTEN ' # list ports in use
 alias poweroff='sudo shutdown -h now' # turn off device
 alias reboot='sudo reboot' # reboot
-alias refresh="source ~/.zshrc" # reload zshrc
-alias reload="source ~/.zshrc" # reload zshrc alt
-alias rm='rm -r -i' # remove file interactively
-alias untar='tar -zxvf' # unpack a .tar file
+alias refresh="exec zsh" # reload .zshrc properly
+alias reload="exec zsh" # reload .zshrc properly alt
+alias rm='rm -r -i ' # remove file interactively
+alias tarup='tar czvf ' # pack a .tar file
+alias twig='_twig() { "$@" | tee /home/pi/temp/twig.log ;}; _twig ' # log stdout of a command to file
+alias untar='tar -zxvf ' # unpack a .tar file
 alias update="sudo apt-get update && sudo apt-get upgrade" # shorter update
-alias vlca='cvlc --no-video -q' # play audio only
-alias wget="wget -c" # continue, resume getting a partially-downloaded file
-alias woman='eg' # like man
-alias x='chmod +x' # make executable
+alias vlca='cvlc --no-video -q ' # play audio only
+alias wget="wget -c " # continue, resume getting a partially-downloaded file
+alias woman='eg ' # like man
+alias x='chmod +x ' # make executable
 alias yta='_yta() { yt-dlp -f "ba" -x --audio-format mp3 "$1" -o "%(id)s.%(ext)s" ;}; _yta' # download audio only
-alias ytdl="yt-dlp" # easier to remember command to download a video from YouTube
+alias ytdl="yt-dlp " # easier to remember command to download a video from YouTube
 alias zshrc="nano ~/.zshrc" # edit zshrc
+
+# suffix aliases
+alias -s {ahk,bat,bin,cs,css,csv,h,html,ini,js,json,log,lua,md,ps1,py,rc,reg,sh,ts,txt,xml,yml}=nano
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
