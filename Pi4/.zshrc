@@ -90,8 +90,9 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/usr/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-# Preferred editor for local and remote sessions
+# Preferred for local and remote sessions
  if [[ -n $SSH_CONNECTION ]]; then
+   export DISPLAY=:0.0
    export EDITOR='nano'
  else
    export EDITOR='code'
@@ -147,6 +148,8 @@ alias poweroff='sudo shutdown -h now' # turn off device
 alias reboot='sudo reboot' # reboot
 alias refresh="exec zsh" # reload .zshrc properly
 alias reload="exec zsh" # reload .zshrc properly alt
+alias rn='mv ' # rename/move a file shorter
+alias rename='mv ' # rename/move a file
 alias rm='rm -r -i' # remove file interactively
 alias tarup='tar czvf ' # pack a .tar file
 alias twig='_twig() { "$@" | tee /home/pi/temp/twig.log ;}; _twig ' # log stdout of a command to file
@@ -167,10 +170,11 @@ alias -s {ahk,bat,bin,cs,css,csv,h,html,ini,js,json,log,lua,md,ps1,py,rc,reg,sh,
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# enable zsh syntax highlighting and autosuggestions
+# enable zsh syntax highlighting, autosuggestions and z
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
+source /home/pi/.oh-my-zsh/plugins/z/zsh-z.plugin.zsh
+source /home/pi/.zshrc.enterls
 source /home/pi/.config/broot/launcher/bash/br
 
 . /usr/share/autojump/autojump.sh
