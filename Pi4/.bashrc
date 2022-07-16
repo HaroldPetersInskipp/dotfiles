@@ -96,6 +96,8 @@ alias reboot='sudo reboot'
 alias poweroff='sudo shutdown -h now'
 alias update="sudo apt-get update && sudo apt-get upgrade"
 alias please='sudo $(fc -ln -1)'
+alias open='_open() { echo $PWD/"$@" | tee /home/pi/Downloads/ColdStorage/filename.txt ;}; _open ' # echos a filepath
+alias close='_close() { echo $RANDOM | tee /home/pi/Downloads/ColdStorage/close.txt ;}; _close ' # 
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -125,3 +127,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PATH="$HOME/.local/bin:$PATH"
+
+  export PATH="${PATH}:/home/pi/.cargo/bin/navi"
+
+  export PATH="${PATH}:/home/pi/.cargo/bin/navi"

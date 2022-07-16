@@ -118,6 +118,7 @@ alias c='clear ' # shorter clear
 alias cat='bat --theme="Visual Studio Dark+" ' # pretty cat
 alias cd..='cd .. ' # fix typo
 alias child='tldr ' # see man and woman
+alias close='_close() { echo $RANDOM | tee /home/pi/Downloads/ColdStorage/close.txt ;}; _close ' # 
 alias cp="cp -i " # copy file interactively
 alias derp='tldr $(fc -ln -1)' # when you forget a command
 alias df='df -h --total ' # human readable disk space usage
@@ -138,6 +139,7 @@ alias mcd='_mcd() { mkdir -p "$1" && cd "$1" ;}; _mcd' # make a directory and cd
 alias mkdir='mkdir -pv ' # make directory and parent directories, verbose
 alias mp3='cvlc --no-video -q *.mp3 ' # play mp3 audio with vlc
 alias mv="mv -i " # move file interactively
+alias open='_open() { echo $PWD/"$@" | tee /home/pi/Downloads/ColdStorage/filename.txt ;}; _open ' # echos a filepath
 alias path='echo $PATH | tr -s ":" "\n" ' # pretty print the path
 alias ping='ping -c 5 ' # ping only 5 times then stop
 alias please='sudo $(fc -ln -1)' # rerun last command with sudo, good manners
