@@ -9,7 +9,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/pi/.oh-my-zsh"
+export ZSH="/home/pirate/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -77,7 +77,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git autojump colored-man-pages colorize extract thefuck command-not-found zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git colored-man-pages colorize extract command-not-found zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -111,14 +111,15 @@ alias ..='cd .. ' # lazy
 alias ...='cd ../.. ' # very lazy
 alias ....='cd ../../.. ' # plus ultra lazy
 alias 777='chmod -R 777 ' # set permissions to 777
-alias audio='cvlc --no-video -q ' # play audio only
+# alias audio='cvlc --no-video -q ' # play audio only
 alias bashrc="nano ~/.bashrc " # edit bashrc
-alias brootpi='br -d -s --show-root-fs -T ' # navigate filesystem
+alias bat='batcat --theme="Visual Studio Dark+" ' # pretty bat
+# alias brootpi='br -d -s --show-root-fs -T ' # navigate filesystem
 alias c='clear ' # shorter clear
-alias cat='bat --theme="Visual Studio Dark+" ' # pretty cat
+alias cat='batcat --theme="Visual Studio Dark+" ' # pretty cat
 alias cd..='cd .. ' # fix typo
 alias child='tldr ' # see man and woman
-alias close='_close() { echo $RANDOM | tee /home/pi/Downloads/ColdStorage/close.txt ;}; _close ' # close last opened
+# alias close='_close() { echo $RANDOM | tee /home/pi/Downloads/ColdStorage/close.txt ;}; _close ' # close last opened
 alias cp="cp -i " # copy file interactively
 alias derp='tldr $(fc -ln -1)' # when you forget a command
 alias df='df -h --total ' # human readable disk space usage
@@ -137,27 +138,28 @@ alias ls='ls -aFhv --color=auto --group-directories-first ' # better ls output
 alias lsa='exa -al -F -h --group-directories-first --color-scale ' # like ls but better alt
 alias mcd='_mcd() { mkdir -p "$1" && cd "$1" ;}; _mcd' # make a directory and cd to it
 alias mkdir='mkdir -pv ' # make directory and parent directories, verbose
-alias mp3='cvlc --no-video -q *.mp3 ' # play mp3 audio with vlc
+# alias mp3='cvlc --no-video -q *.mp3 ' # play mp3 audio with vlc
 alias mv="mv -i " # move file interactively
-alias open='_open() { echo $PWD/"$@" | tee /home/pi/Downloads/ColdStorage/filename.txt ;}; _open ' # echos a filepath
+# alias open='_open() { echo $PWD/"$@" | tee /home/pi/Downloads/ColdStorage/filename.txt ;}; _open ' # echos a filepath
+alias open='explorer.exe .' # open your WSL working directory in Windows File Explorer
 alias path='echo $PATH | tr -s ":" "\n" ' # pretty print the path
 alias ping='ping -c 5 ' # ping only 5 times then stop
 alias please='sudo $(fc -ln -1)' # rerun last command with sudo, good manners
 alias pls='sudo $(fc -ln -1)' # shorter please
 alias plz='sudo $(fc -ln -1)' # shorter please alt
 alias ports='sudo lsof -i -P -n | grep LISTEN ' # list ports in use
-alias poweroff='sudo shutdown -h now' # turn off device
-alias reboot='sudo reboot' # reboot
+# alias poweroff='sudo shutdown -h now' # turn off device
+# alias reboot='sudo reboot' # reboot
 alias refresh="exec zsh" # reload .zshrc properly
 alias reload="exec zsh" # reload .zshrc properly alt
 alias rn='mv ' # rename/move a file shorter
 alias rename='mv ' # rename/move a file
 alias rm='rm -r -i' # remove file interactively
 alias tarup='tar czvf ' # pack a .tar file
-alias twig='_twig() { "$@" | tee /home/pi/temp/twig.log ;}; _twig ' # log stdout of a command to file
+# alias twig='_twig() { "$@" | tee /home/pi/temp/twig.log ;}; _twig ' # log stdout of a command to file
 alias untar='tar -zxvf ' # unpack a .tar file
 alias update="sudo apt-get update && sudo apt-get upgrade" # shorter update
-alias vlca='cvlc --no-video -q ' # play audio only
+# alias vlca='cvlc --no-video -q ' # play audio only
 alias wget="wget -c " # continue, resume getting a partially-downloaded file
 alias woman='eg ' # like man
 alias x='chmod +x ' # make executable
@@ -175,9 +177,13 @@ alias -s {ahk,bat,bin,cs,css,csv,h,html,ini,js,json,log,lua,md,ps1,py,rc,reg,sh,
 # enable zsh syntax highlighting, autosuggestions and z
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /home/pi/.oh-my-zsh/plugins/z/zsh-z.plugin.zsh
-source /home/pi/.zshrc.enterls
-source /home/pi/.config/broot/launcher/bash/br
+source /home/pirate/.oh-my-zsh/plugins/z/zsh-z.plugin.zsh
+source /home/pirate/.zshrc.enterls
+# source /home/pi/.config/broot/launcher/bash/br
 
-. /usr/share/autojump/autojump.sh
-. /home/pi/.local/share/lscolors.sh
+# . /usr/share/autojump/autojump.sh
+# . /home/pirate/.local/share/lscolors.sh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
