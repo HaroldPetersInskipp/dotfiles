@@ -119,6 +119,7 @@ alias cat='bat --theme="Visual Studio Dark+" ' # pretty cat
 alias cd..='cd .. ' # fix typo
 alias child='tldr ' # see man and woman
 alias close='_close() { echo $RANDOM | tee /home/pi/Downloads/ColdStorage/close.txt ;}; _close ' # close last opened
+alias count='grep -ci' # displays the number of occurrences of keyword in a file
 alias cp="cp -i " # copy file interactively
 alias derp='tldr $(fc -ln -1)' # when you forget a command
 alias df='df -h --total ' # human readable disk space usage
@@ -128,6 +129,9 @@ alias exa='exa -al -F -h --group-directories-first --color-scale ' # like ls but
 alias grep='grep -iI -P --exclude-dir=".git" --color=auto ' # pretty grep
 alias h='history' # shorter history
 alias hdi='function hdi(){ howdoi $* -a -c -n 3 ;}; hdi' # shorter howdoi
+alias highlight='_highlight() { less -JMINsp$@ ;}; _highlight' # highlight all occurrences of a keyword in a file
+alias hl='_hl() { less -JMINsp$@ ;}; _hl' # shorter highlight
+alias hs='history | grep ' # search command history
 alias how='function hdi(){ howdoi $* -a -c -n 3 ;}; hdi' # shorter howdoi alt
 alias howdoi='function hdi(){ howdoi $* -a -c -n 3 ;}; hdi' # when idk how to do things
 alias hs='history | grep ' # search command history
