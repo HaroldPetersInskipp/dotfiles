@@ -131,10 +131,10 @@ alias h='history' # shorter history
 alias hdi='function hdi(){ howdoi $* -a -c -n 3 ;}; hdi' # shorter howdoi
 alias highlight='_highlight() { less -JMINsp$@ ;}; _highlight' # highlight all occurrences of a keyword in a file
 alias hl='_hl() { less -JMINsp$@ ;}; _hl' # shorter highlight
-alias hs='history | grep ' # search command history
 alias how='function hdi(){ howdoi $* -a -c -n 3 ;}; hdi' # shorter howdoi alt
 alias howdoi='function hdi(){ howdoi $* -a -c -n 3 ;}; hdi' # when idk how to do things
 alias hs='history | grep ' # search command history
+alias ht='htop' # shorter htop
 alias jobs='jobs -l ' # list jobs
 alias ln='ln -i ' # link file interactively
 alias ls='ls -aFhv --color=auto --group-directories-first ' # better ls output
