@@ -111,6 +111,7 @@ alias ..='cd .. ' # lazy
 alias ...='cd ../.. ' # very lazy
 alias ....='cd ../../.. ' # plus ultra lazy
 alias 777='chmod -R 777 ' # set permissions to 777
+alias appdata='appdata() { cd "$( wslupath -A )" ;}; appdata' # navigate to the appdata folder
 # alias audio='cvlc --no-video -q ' # play audio only
 alias bashrc="nano ~/.bashrc " # edit bashrc
 alias bat='batcat --theme="Visual Studio Dark+" ' # pretty bat
@@ -118,22 +119,23 @@ alias bat='batcat --theme="Visual Studio Dark+" ' # pretty bat
 alias c='clear ' # shorter clear
 alias cat='batcat --theme="Visual Studio Dark+" ' # pretty cat
 alias cd..='cd .. ' # fix typo
+alias desktop='_desktop() { cd "$( wslupath -D )" ;}; _desktop' # navigate to the desktop
+alias documents='documents() { cd "$( wslupath -H )/documents" ;}; documents' # navigate to the windows documents folder
+alias downloads='downloads() { cd "$( wslupath -H )/downloads" ;}; downloads' # navigate to the windows downloads folder
 alias child='tldr ' # see man and woman
 # alias close='_close() { echo $RANDOM | tee /home/pi/Downloads/ColdStorage/close.txt ;}; _close ' # close last opened
-alias count='grep -ci' # displays the number of occurrences of keyword in a file
 alias cp="cp -i " # copy file interactively
 alias derp='tldr $(fc -ln -1)' # when you forget a command
 alias df='df -h --total ' # human readable disk space usage
-alias edit='nano ' # edit files
+alias edit='notepad++.exe ' # edit files
 alias eg='eg --pager-cmd "less -sR" ' # get examples for how a command is used
 alias exa='exa -al -F -h --group-directories-first --color-scale ' # like ls but better
 alias grep='grep -iI -P --exclude-dir=".git" --color=auto ' # pretty grep
 alias h='history' # shorter history
 alias hdi='function hdi(){ howdoi $* -a -c -n 3 ;}; hdi' # shorter howdoi
+alias here='explorer.exe .' # open your WSL working directory in Windows File Explorer
 alias how='function hdi(){ howdoi $* -a -c -n 3 ;}; hdi' # shorter howdoi alt
 alias howdoi='function hdi(){ howdoi $* -a -c -n 3 ;}; hdi' # when idk how to do things
-alias highlight='_highlight() { less -JMINsp$@ ;}; _highlight' # highlight all occurrences of a keyword in a file
-alias hl='_hl() { less -JMINsp$@ ;}; _hl' # shorter highlight
 alias hs='history | grep ' # search command history
 alias ht='htop' # shorter htop
 alias jobs='jobs -l ' # list jobs
@@ -143,28 +145,45 @@ alias lsa='exa -al -F -h --group-directories-first --color-scale ' # like ls but
 alias mcd='_mcd() { mkdir -p "$1" && cd "$1" ;}; _mcd' # make a directory and cd to it
 alias mkdir='mkdir -pv ' # make directory and parent directories, verbose
 # alias mp3='cvlc --no-video -q *.mp3 ' # play mp3 audio with vlc
+alias music='music() { cd "$( wslupath -H )/music" ;}; music' # navigate to the windows music folder
 alias mv="mv -i " # move file interactively
 # alias open='_open() { echo $PWD/"$@" | tee /home/pi/Downloads/ColdStorage/filename.txt ;}; _open ' # echos a filepath
-alias open='explorer.exe .' # open your WSL working directory in Windows File Explorer
+alias open='wslview ' # open files and folders from WSL in Windows
 alias path='echo $PATH | tr -s ":" "\n" ' # pretty print the path
+alias pf='pf() { cd "$( wslupath -P )" ;}; pf' # programfiles shorter
+alias pf86='pf86() { cd "$( wslupath -P ) (x86)" ;}; pf86' # programfiles86 shorter
+alias pictures='pictures() { cd "$( wslupath -H )/pictures" ;}; pictures' # navigate to the windows pictures folder
 alias ping='ping -c 5 ' # ping only 5 times then stop
 alias please='sudo $(fc -ln -1)' # rerun last command with sudo, good manners
 alias pls='sudo $(fc -ln -1)' # shorter please
 alias plz='sudo $(fc -ln -1)' # shorter please alt
+alias portableprograms='cd /mnt/d/PortablePrograms ' # navigate to the windows portable programs folder
 alias ports='sudo lsof -i -P -n | grep LISTEN ' # list ports in use
 # alias poweroff='sudo shutdown -h now' # turn off device
+alias pp='cd /mnt/d/PortablePrograms ' # shorter portableprograms
+alias programfiles='programfiles() { cd "$( wslupath -P )" ;}; programfiles' # navigate to the windows program files folder
+alias programfiles86='programfiles86() { cd "$( wslupath -P ) (x86)" ;}; programfiles86' # navigate to the windows program files (x86) folder
 # alias reboot='sudo reboot' # reboot
 alias refresh="exec zsh" # reload .zshrc properly
 alias reload="exec zsh" # reload .zshrc properly alt
 alias rn='mv ' # rename/move a file shorter
 alias rename='mv ' # rename/move a file
 alias rm='rm -r -i' # remove file interactively
+alias startmenu='startmenu() { cd "$( wslupath -s )" ;}; startmenu' # navigate to the windows start menu folder
+alias startup='startup() { cd "$( wslupath -su )" ;}; startup' # navigate to the windows startup folder
+alias sysinfo='wslfetch -c -l' # fetch system info pretty
+alias system32='system32() { cd "$( wslupath -S )" ;}; system32' # navigate to the windows system32 folder
 alias tarup='tar czvf ' # pack a .tar file
+alias temp='temp() { cd "$( wslupath -T )" ;}; temp' # navigate to the windows temporary folder
 # alias twig='_twig() { "$@" | tee /home/pi/temp/twig.log ;}; _twig ' # log stdout of a command to file
 alias untar='tar -zxvf ' # unpack a .tar file
 alias update="sudo apt-get update && sudo apt-get upgrade" # shorter update
+alias videos='videos() { cd "$( wslupath -H )/videos" ;}; videos' # navigate to the windows videos folder
 # alias vlca='cvlc --no-video -q ' # play audio only
 alias wget="wget -c " # continue, resume getting a partially-downloaded file
+alias windows='windows() { cd "$( wslupath -W )" ;}; windows' # navigate to the windows folder
+alias winhome='winhome() { cd "$( wslupath -H )" ;}; winhome' # navigate to the windows home folder
+alias winlink='wslusc -I ' #
 alias woman='eg ' # like man
 alias x='chmod +x ' # make executable
 alias yolo='rm -rf node_modules/ && rm package-lock.json && npm install' # reinstall a project’s dependencies
@@ -181,8 +200,8 @@ alias -s {ahk,bat,bin,cs,css,csv,h,html,ini,js,json,log,lua,md,ps1,py,rc,reg,sh,
 # enable zsh syntax highlighting, autosuggestions and z
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /home/pirate/.oh-my-zsh/plugins/z/zsh-z.plugin.zsh
-source /home/pirate/.zshrc.enterls
+source ~/.oh-my-zsh/plugins/z/zsh-z.plugin.zsh
+source ~/.zshrc.enterls
 # source /home/pi/.config/broot/launcher/bash/br
 
 # . /usr/share/autojump/autojump.sh
@@ -191,3 +210,5 @@ source /home/pirate/.zshrc.enterls
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+/usr/bin/wslfetch -c
