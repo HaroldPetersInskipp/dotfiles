@@ -116,6 +116,7 @@ alias bashrc="nano ~/.bashrc " # edit bashrc
 alias brootpi='br -d -s --show-root-fs -T ' # navigate filesystem
 alias c='clear ' # shorter clear
 alias cat='bat --theme="Visual Studio Dark+" ' # pretty cat
+alias cato='bat -P --theme="Visual Studio Dark+" ' # pretty cat -o
 alias cd..='cd .. ' # fix typo
 alias child='tldr ' # see man and woman
 alias close='_close() { echo $RANDOM | tee /home/pi/Downloads/ColdStorage/close.txt ;}; _close ' # close last opened
@@ -126,6 +127,7 @@ alias df='df -h --total ' # human readable disk space usage
 alias edit='nano ' # edit files
 alias eg='eg --pager-cmd "less -sR" ' # get examples for how a command is used
 alias exa='exa -al -F -h --group-directories-first --color-scale ' # like ls but better
+alias exe='chmod +x ' # make executable
 alias grep='grep -iI -P --exclude-dir=".git" --color=auto ' # pretty grep
 alias h='history' # shorter history
 alias hdi='function hdi(){ howdoi $* -a -c -n 3 ;}; hdi' # shorter howdoi
@@ -164,7 +166,6 @@ alias update="sudo apt-get update && sudo apt-get upgrade" # shorter update
 alias vlca='cvlc --no-video -q ' # play audio only
 alias wget="wget -c " # continue, resume getting a partially-downloaded file
 alias woman='eg ' # like man
-alias x='chmod +x ' # make executable
 alias yolo='rm -rf node_modules/ && rm package-lock.json && npm install' # reinstall a project’s dependencies
 alias yta='_yta() { yt-dlp -f "ba" -x --audio-format mp3 "$1" -o "%(id)s.%(ext)s" ;}; _yta' # download audio only
 alias ytdl="yt-dlp " # easier to remember command to download a video from YouTube
