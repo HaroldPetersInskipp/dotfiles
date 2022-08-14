@@ -114,26 +114,33 @@ alias 777='chmod -R 777 ' # set permissions to 777
 alias appdata='appdata() { cd "$( wslupath -A )" ;}; appdata' # navigate to the appdata folder
 # alias audio='cvlc --no-video -q ' # play audio only
 alias bashrc="nano ~/.bashrc " # edit bashrc
-alias bat='batcat --theme="Visual Studio Dark+" ' # pretty bat
+alias bat='bat --theme="Visual Studio Dark+" ' # pretty bat
 # alias brootpi='br -d -s --show-root-fs -T ' # navigate filesystem
 alias c='clear ' # shorter clear
-alias cat='batcat --theme="Visual Studio Dark+" ' # pretty cat
+alias cat='bat --theme="Visual Studio Dark+" ' # pretty cat
+alias cato='bat -P --theme="Visual Studio Dark+" ' # pretty cat -o
 alias cd..='cd .. ' # fix typo
 alias desktop='_desktop() { cd "$( wslupath -D )" ;}; _desktop' # navigate to the desktop
 alias documents='documents() { cd "$( wslupath -H )/documents" ;}; documents' # navigate to the windows documents folder
 alias downloads='downloads() { cd "$( wslupath -H )/downloads" ;}; downloads' # navigate to the windows downloads folder
 alias child='tldr ' # see man and woman
-# alias close='_close() { echo $RANDOM | tee /home/pi/Downloads/ColdStorage/close.txt ;}; _close ' # close last opened
+# alias close='_close() { echo $RANDOM | tee ~/Downloads/ColdStorage/close.txt ;}; _close ' # close last opened
+alias count='grep -ci' # displays the number of occurrences of keyword in a file
 alias cp="cp -i " # copy file interactively
 alias derp='tldr $(fc -ln -1)' # when you forget a command
 alias df='df -h --total ' # human readable disk space usage
+alias down='cd ~/Downloads ' # change active directory to the Downloads directory
 alias edit='notepad++.exe ' # edit files
 alias eg='eg --pager-cmd "less -sR" ' # get examples for how a command is used
 alias exa='exa -al -F -h --group-directories-first --color-scale ' # like ls but better
+alias exe='chmod +x ' # make executable
 alias grep='grep -iI -P --exclude-dir=".git" --color=auto ' # pretty grep
 alias h='history' # shorter history
+alias hc='history |  cut -c24- | sort  | uniq -c | sort -nr | head -n 100 ' # get common commands from history
 alias hdi='function hdi(){ howdoi $* -a -c -n 3 ;}; hdi' # shorter howdoi
 alias here='explorer.exe .' # open your WSL working directory in Windows File Explorer
+alias highlight='_highlight() { less -JMINsp$@ ;}; _highlight' # highlight all occurrences of a keyword in a file
+alias hl='_hl() { less -JMINsp$@ ;}; _hl' # shorter highlight
 alias how='function hdi(){ howdoi $* -a -c -n 3 ;}; hdi' # shorter howdoi alt
 alias howdoi='function hdi(){ howdoi $* -a -c -n 3 ;}; hdi' # when idk how to do things
 alias hs='history | grep ' # search command history
@@ -147,8 +154,11 @@ alias mkdir='mkdir -pv ' # make directory and parent directories, verbose
 # alias mp3='cvlc --no-video -q *.mp3 ' # play mp3 audio with vlc
 alias music='music() { cd "$( wslupath -H )/music" ;}; music' # navigate to the windows music folder
 alias mv="mv -i " # move file interactively
-# alias open='_open() { echo $PWD/"$@" | tee /home/pi/Downloads/ColdStorage/filename.txt ;}; _open ' # echos a filepath
+alias node-red="cd ~ && node-red" # run node-red from the home directory
+# alias nrr='sudo systemctl restart nodered.service' # restart the nodered service
+# alias open='_open() { echo $PWD/"$@" | tee ~/Downloads/ColdStorage/filename.txt ;}; _open ' # echos a filepath
 alias open='wslview ' # open files and folders from WSL in Windows
+alias os='cat /etc/os-release' # get os information
 alias path='echo $PATH | tr -s ":" "\n" ' # pretty print the path
 alias pf='pf() { cd "$( wslupath -P )" ;}; pf' # programfiles shorter
 alias pf86='pf86() { cd "$( wslupath -P ) (x86)" ;}; pf86' # programfiles86 shorter
@@ -175,7 +185,7 @@ alias sysinfo='wslfetch -c -l' # fetch system info pretty
 alias system32='system32() { cd "$( wslupath -S )" ;}; system32' # navigate to the windows system32 folder
 alias tarup='tar czvf ' # pack a .tar file
 alias temp='temp() { cd "$( wslupath -T )" ;}; temp' # navigate to the windows temporary folder
-# alias twig='_twig() { "$@" | tee /home/pi/temp/twig.log ;}; _twig ' # log stdout of a command to file
+# alias twig='_twig() { "$@" | tee ~/temp/twig.log ;}; _twig ' # log stdout of a command to file
 alias untar='tar -zxvf ' # unpack a .tar file
 alias update="sudo apt-get update && sudo apt-get upgrade" # shorter update
 alias videos='videos() { cd "$( wslupath -H )/videos" ;}; videos' # navigate to the windows videos folder
@@ -185,7 +195,6 @@ alias windows='windows() { cd "$( wslupath -W )" ;}; windows' # navigate to the 
 alias winhome='winhome() { cd "$( wslupath -H )" ;}; winhome' # navigate to the windows home folder
 alias winlink='wslusc -I ' #
 alias woman='eg ' # like man
-alias x='chmod +x ' # make executable
 alias yolo='rm -rf node_modules/ && rm package-lock.json && npm install' # reinstall a project’s dependencies
 alias yta='_yta() { yt-dlp -f "ba" -x --audio-format mp3 "$1" -o "%(id)s.%(ext)s" ;}; _yta' # download audio only
 alias ytdl="yt-dlp " # easier to remember command to download a video from YouTube
@@ -202,10 +211,10 @@ source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.oh-my-zsh/plugins/z/zsh-z.plugin.zsh
 source ~/.zshrc.enterls
-# source /home/pi/.config/broot/launcher/bash/br
+# source ~/.config/broot/launcher/bash/br
 
 # . /usr/share/autojump/autojump.sh
-# . /home/pirate/.local/share/lscolors.sh
+# . ~/.local/share/lscolors.sh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
