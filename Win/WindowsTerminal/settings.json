@@ -4,6 +4,10 @@
     "actions": 
     [
         {
+            "command": "paste",
+            "keys": "ctrl+v"
+        },
+        {
             "command": 
             {
                 "action": "copy",
@@ -16,10 +20,6 @@
             "keys": "ctrl+shift+f"
         },
         {
-            "command": "paste",
-            "keys": "ctrl+v"
-        },
-        {
             "command": 
             {
                 "action": "splitPane",
@@ -29,9 +29,17 @@
             "keys": "alt+shift+d"
         }
     ],
+    "alwaysShowNotificationIcon": false,
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+    "minimizeToNotificationArea": false,
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
     "profiles": 
     {
         "defaults": 
@@ -59,7 +67,7 @@
             },
             {
                 "colorScheme": "Campbell",
-                "commandline": "ssh pi@10.0.0.111",
+                "commandline": "ssh -XY pi@10.0.0.111",
                 "font": 
                 {
                     "face": "JetBrainsMono NF"
@@ -102,15 +110,16 @@
                 },
                 "guid": "{8be860e2-9e34-54d5-9e1f-d9d0ec143746}",
                 "icon": "D:/icons/iPhone.png",
-                "name": "iPhone X"
+                "name": "iPhone X",
+                "suppressApplicationTitle": true
             },
             {
                 "colorScheme": "Campbell",
-                "commandline": "cmd.exe",
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
                 "name": "Command Prompt",
-                "startingDirectory": "C:/Users/Bannd/Downloads"
+                "startingDirectory": "C:/Users/Bannd/Downloads",
+                "suppressApplicationTitle": true
             },
             {
                 "colorScheme": "Campbell",
@@ -123,7 +132,8 @@
                 "icon": "D:/icons/Ubuntu.png",
                 "name": "Ubuntu",
                 "source": "Windows.Terminal.Wsl",
-                "startingDirectory": "C:/Users/Bannd/Downloads"
+                "startingDirectory": "C:/Users/Bannd/Downloads",
+                "suppressApplicationTitle": true
             },
             {
                 "colorScheme": "Campbell",
@@ -135,7 +145,8 @@
                 "hidden": false,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure",
-                "startingDirectory": "C:/Users/Bannd/Downloads"
+                "startingDirectory": "C:/Users/Bannd/Downloads",
+                "suppressApplicationTitle": true
             },
             {
                 "colorScheme": "Campbell",
@@ -148,7 +159,8 @@
                 "icon": "D:/icons/Alpine.png",
                 "name": "Alpine",
                 "source": "Windows.Terminal.Wsl",
-                "startingDirectory": "C:/Users/Bannd/Downloads"
+                "startingDirectory": "C:/Users/Bannd/Downloads",
+                "suppressApplicationTitle": true
             },
             {
                 "colorScheme": "Campbell",
@@ -161,24 +173,11 @@
                 "icon": "D:/icons/Debian.png",
                 "name": "Debian",
                 "source": "Windows.Terminal.Wsl",
-                "startingDirectory": "C:/Users/Bannd/Downloads"
+                "startingDirectory": "C:/Users/Bannd/Downloads",
+                "suppressApplicationTitle": true
             },
             {
                 "colorScheme": "Campbell",
-                "font": 
-                {
-                    "face": "JetBrainsMono NF"
-                },
-                "guid": "{46ca431a-3a87-5fb3-83cd-11ececc031d2}",
-                "hidden": false,
-                "icon": "D:/icons/Kali-alt.png",
-                "name": "Kali",
-                "source": "Windows.Terminal.Wsl",
-                "startingDirectory": "C:/Users/Bannd/Downloads"
-            },
-            {
-                "colorScheme": "Campbell",
-                "commandline": "powershell.exe",
                 "font": 
                 {
                     "face": "JetBrainsMono NF"
@@ -186,29 +185,18 @@
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
                 "name": "Windows PowerShell",
-                "startingDirectory": "C:/Users/Bannd/Downloads"
-            },
-            {
-                "colorScheme": "Campbell",
-                "font": 
-                {
-                    "face": "JetBrainsMono NF"
-                },
-                "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-                "hidden": true,
-                "name": "Ubuntu-Jack",
-                "source": "Windows.Terminal.Wsl",
-                "startingDirectory": "C:/Users/Bannd/Downloads"
+                "startingDirectory": "C:/Users/Bannd/Downloads",
+                "suppressApplicationTitle": true
             },
             {
                 "guid": "{65d59cef-2c0a-5756-80ed-4089ef706ac0}",
-                "hidden": false,
+                "hidden": true,
                 "name": "Developer Command Prompt for VS 2019 (2)",
                 "source": "Windows.Terminal.VisualStudio"
             },
             {
                 "guid": "{226b5986-a895-5440-bcd2-0810e85872e9}",
-                "hidden": false,
+                "hidden": true,
                 "name": "Developer PowerShell for VS 2019 (2)",
                 "source": "Windows.Terminal.VisualStudio"
             },
@@ -228,6 +216,18 @@
                 "guid": "{cc266141-6a2d-5787-bb5d-ecf3851837ea}",
                 "hidden": true,
                 "name": "Developer Command Prompt for VS 2017",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{c9949ad7-ae48-5bdd-814a-2793a969480d}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{f7d285c4-4a80-5840-ac9c-a850e4c5bf0e}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2022",
                 "source": "Windows.Terminal.VisualStudio"
             }
         ]
@@ -511,6 +511,9 @@
             "yellow": "#808000"
         }
     ],
+    "tabSwitcherMode": "inOrder",
     "tabWidthMode": "equal",
-    "theme": "dark"
+    "theme": "dark",
+    "themes": [],
+    "windowingBehavior": "useNew"
 }

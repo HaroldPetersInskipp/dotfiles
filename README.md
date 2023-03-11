@@ -1,1 +1,1 @@
-This repository contains some of my dotfiles.
+This repository contains some of my dotfiles for Windows, WSL, Ubuntu, Raspberry Pi devices, and iOS devices.

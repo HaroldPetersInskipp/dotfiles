@@ -16,8 +16,10 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=10000
+HISTFILESIZE=10000
+export HISTTIMEFORMAT='%d/%m/%y %H:%M '
+PROMPT_COMMAND='history -a'
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -75,10 +77,10 @@ esac
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
+    #alias ls='ls --color=auto'
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
-    alias grep='grep --color=auto'
+    #alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
@@ -88,20 +90,92 @@ fi
 
 # some more aliases
 #alias ll='ls -l'
-alias la='ls -A'
+#alias la='ls -A'
 #alias l='ls -CF'
-alias ..="cd .."
-alias ...="cd ../.."
-alias reboot='sudo reboot'
-alias poweroff='sudo shutdown -h now'
-alias update="sudo apt-get update && sudo apt-get upgrade"
-alias please='sudo $(fc -ln -1)'
-alias mkdir="mkdir -p"
 
-# Pretty print the path
-alias path='echo $PATH | tr -s ":" "\n"'
-
+alias ..='cd .. ' # lazy
+alias ...='cd ../.. ' # very lazy
+alias ....='cd ../../.. ' # plus ultra lazy
+alias 777='chmod -R 777 ' # set permissions to 777
+alias audio='cvlc --no-video -q ' # play audio only
+alias bashrc="nano ~/.bashrc " # edit bashrc
+#alias bat='bat --theme="Visual Studio Dark+" ' # pretty bat
+#alias brootpi='br -d -s --show-root-fs -T ' # navigate filesystem
+alias c='clear ' # shorter clear
+#alias cat='bat --theme="Visual Studio Dark+" ' # pretty cat
+#alias cato='bat -P --theme="Visual Studio Dark+" ' # pretty cat -o
+alias cd..='cd .. ' # fix typo
+#alias child='tldr ' # see man and woman
+#alias close='_close() { echo $RANDOM | tee ~/Downloads/ColdStorage/close.txt ;}; _close ' # close last opened
+alias count='grep -ci' # displays the number of occurrences of keyword in a file
+alias cp="cp -i " # copy file interactively
+#alias derp='tldr $(fc -ln -1)' # when you forget a command
+alias df='df -h --total ' # human readable disk space usage
+#alias docker='sudo docker ' # auto-prefix docker commands with sudo
+alias down='cd ~/Downloads ' # change active directory to the Downloads directory
+alias edit='nano ' # edit files
+#alias eg='eg --pager-cmd "less -sR" ' # get examples for how a command is used
+#alias exa='exa -al -F -h --group-directories-first --color-scale ' # like ls but better
+alias exe='chmod +x ' # make executable
+#alias fh='cd ~ && audio FH.mp3' # plays an audio file
+#alias garden='cd ~ && audio BG.mp3' # plays an audio file
+alias getip="curl icanhazip.com" # get current external IP
+alias grep='grep -iI -P --exclude-dir=".git" --color=auto ' # pretty grep
+alias h='history' # shorter history
+alias hc='history |  cut -c24- | sort  | uniq -c | sort -nr | head -n 100 ' # get common commands from history
+#alias hdi='function hdi(){ howdoi $* -a -c -n 3 ;}; hdi' # shorter howdoi
+alias highlight='_highlight() { less -JMINsp$@ ;}; _highlight' # highlight all occurrences of a keyword in a file
+alias hl='_hl() { less -JMINsp$@ ;}; _hl' # shorter highlight
+#alias how='function hdi(){ howdoi $* -a -c -n 3 ;}; hdi' # shorter howdoi alt
+#alias howdoi='function hdi(){ howdoi $* -a -c -n 3 ;}; hdi' # when idk how to do things
+alias hs='history | grep ' # search command history
+alias ht='htop' # shorter htop
+alias jobs='jobs -l ' # list jobs
+alias ln='ln -i ' # link file interactively
+alias ls='ls -aFhv --color=auto --group-directories-first ' # better ls output
+#alias lsa='exa -al -F -h --group-directories-first --color-scale ' # like ls but better alt
+alias mcd='_mcd() { mkdir -p "$1" && cd "$1" ;}; _mcd' # make a directory and cd to it
+alias mkdir='mkdir -pv ' # make directory and parent directories, verbose
+alias mp3='cvlc --no-video -q *.mp3 ' # play mp3 audio with vlc
+alias mv="mv -i " # move file interactively
+alias nrr='sudo systemctl restart nodered.service' # restart the nodered service
+#alias open='_open() { echo $PWD/"$@" | tee ~/Downloads/ColdStorage/filename.txt ;}; _open ' # echos a filepath
+alias os='cat /etc/os-release' # get os information
+alias path='echo $PATH | tr -s ":" "\n" ' # pretty print the path
+alias ping='ping -c 5 ' # ping only 5 times then stop
+alias please='sudo $(fc -ln -1)' # rerun last command with sudo, good manners
+alias pls='sudo $(fc -ln -1)' # shorter please
+alias plz='sudo $(fc -ln -1)' # shorter please alt
+alias ports='sudo lsof -i -P -n | grep LISTEN ' # list ports in use
+alias poweroff='sudo shutdown -h now' # turn off device
 alias python='/usr/bin/python3.7'
+alias reboot='sudo reboot' # reboot
+#alias refresh="exec zsh" # reload .zshrc properly
+#alias reload="exec zsh" # reload .zshrc properly alt
+alias rn='mv ' # rename/move a file shorter
+alias rename='mv ' # rename/move a file
+alias rm='rm -r -I' # remove file interactively
+#alias rtsp='cd /home/pi/Downloads/Temp && RTSP_RTSPADDRESS=10.0.0.111:8554 ./rtsp-simple-server' # start rtsp server
+alias ssdisable='sudo systemctl disable ' # disable a service with systemctl
+alias ssenable='sudo systemctl enable ' # enable a service with systemctl
+alias ssreload='sudo systemctl daemon-reload' # reload systemd manager configuration
+alias ssrestart='sudo systemctl restart ' # restart a service with systemctl
+alias ssstart='sudo systemctl start ' # start a service with systemctl
+alias ssstop='sudo systemctl stop ' # stop a service with systemctl
+alias sruby='_sruby() { ruby "$@" 2>/dev/null ;}; _sruby ' # suppress warnings from a ruby program
+alias tarup='tar czvf ' # pack a .tar file
+alias twig='_twig() { "$@" | tee ~/temp/twig.log ;}; _twig ' # log stdout of a command to file
+alias untar='tar -zxvf ' # unpack a .tar file
+alias update="sudo apt-get update && sudo apt-get upgrade" # shorter update
+alias vlca='cvlc --no-video -q ' # play audio only
+#alias webcam='sudo ffmpeg -f v4l2 -framerate 30 -video_size 640x480 -i /dev/video0 -f rtsp -rtsp_transport tcp rtsp://myuser:mypass@10.0.0.114:8554/livestream' # pipe webcam into rtsp server
+#alias webcam='sudo ffmpeg -f v4l2 -pix_fmt yuyv422 -framerate 10 -video_size 1280x720 -i /dev/video0 -b:v 1M -f rtsp -rtsp_transport tcp rtsp://myuser:mypass@10.0.0.114:8554/livestream' # start rtsp stream from webcam
+alias wget="wget -c " # continue, resume getting a partially-downloaded file
+#alias woman='eg ' # like man
+alias yolo='rm -rf node_modules/ && rm package-lock.json && npm install' # reinstall a project’s dependencies
+alias yta='_yta() { yt-dlp -f "ba" -x --audio-format mp3 "$1" -o "%(id)s.%(ext)s" ;}; _yta' # download audio only
+alias ytdl="yt-dlp " # easier to remember command to download a video from YouTube
+alias zshrc="nano ~/.zshrc" # edit zshrc
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like

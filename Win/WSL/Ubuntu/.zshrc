@@ -10,6 +10,9 @@ fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/pirate/.oh-my-zsh"
+export HOST_IP=$(ip route | grep default | awk '{print $3}')
+export PULSE_SERVER=tcp:$HOST_IP
+export DISPLAY=$HOST_IP:0.0
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -135,6 +138,7 @@ alias eg='eg --pager-cmd "less -sR" ' # get examples for how a command is used
 alias exa='exa -al -F -h --group-directories-first --color-scale ' # like ls but better
 alias exe='chmod +x ' # make executable
 alias grep='grep -iI -P --exclude-dir=".git" --color=auto ' # pretty grep
+alias getip="curl icanhazip.com" # get current external IP
 alias h='history' # shorter history
 alias hc='history |  cut -c24- | sort  | uniq -c | sort -nr | head -n 100 ' # get common commands from history
 alias hdi='function hdi(){ howdoi $* -a -c -n 3 ;}; hdi' # shorter howdoi
@@ -201,7 +205,7 @@ alias ytdl="yt-dlp " # easier to remember command to download a video from YouTu
 alias zshrc="nano ~/.zshrc" # edit zshrc
 
 # suffix aliases
-alias -s {ahk,bat,bin,cs,css,csv,h,html,ini,js,json,log,lua,md,ps1,py,rc,reg,sh,ts,txt,xml,yml}=nano
+alias -s {ahk,bat,bin,cs,css,csv,h,html,ini,js,json,log,lua,md,ps1,py,rc,reg,ts,txt,xml,yml}=nano
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -68,6 +68,15 @@ CASE_SENSITIVE="false"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
 HIST_STAMPS="mm/dd/yyyy"
+export HISTSIZE=10000   # the number of items for the internal history list
+export SAVEHIST=10000  # Save most-recent 10000 lines
+
+# The meaning of these options can be found in man page of `zshoptions`.
+setopt HIST_IGNORE_ALL_DUPS  # do not put duplicated command into history list
+setopt HIST_SAVE_NO_DUPS  # do not save duplicated command
+setopt HIST_REDUCE_BLANKS  # remove unnecessary blanks
+setopt INC_APPEND_HISTORY_TIME  # append command to history file immediately after execution
+setopt EXTENDED_HISTORY  # record command start time
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -86,8 +95,7 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 
 export EDITOR='micro'
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$PATH:/usr/sbin"
+export PATH="$HOME/.local/bin:/usr/sbin:/snap/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Preferred for local and remote sessions
@@ -97,6 +105,11 @@ export PATH="$PATH:/usr/sbin"
  else
    export EDITOR='code'
  fi
+
+# Make a backup of a file by suffixing filename with date
+function backup(){
+	cp "$1" "$1("`date +%Y"-"%m"-"%d`")".bak;
+}
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -126,6 +139,7 @@ alias cp="cp -i " # copy file interactively
 alias derp='tldr $(fc -ln -1)' # when you forget a command
 alias df='df -h --total ' # human readable disk space usage
 alias docker='sudo docker ' # auto-prefix docker commands with sudo
+alias doom='_doom() { chocolate-doom -iwad "$@" ;}; doom' # runs a doom wad
 alias down='cd ~/Downloads ' # change active directory to the Downloads directory
 alias edit='nano ' # edit files
 alias eg='eg --pager-cmd "less -sR" ' # get examples for how a command is used
@@ -165,9 +179,11 @@ alias poweroff='sudo shutdown -h now' # turn off device
 alias reboot='sudo reboot' # reboot
 alias refresh="exec zsh" # reload .zshrc properly
 alias reload="exec zsh" # reload .zshrc properly alt
-alias rn='mv ' # rename/move a file shorter
+alias rn='sudo mv ' # rename/move a file shorter
 alias rename='mv ' # rename/move a file
-alias rm='rm -r -I' # remove file interactively
+alias rmi='rm -rI' # remove file recursive interactively
+alias rmf='rm -rfv' # remove file recursive with force verbose
+alias rtsp='cd /home/pi/Downloads/Temp && RTSP_RTSPADDRESS=10.0.0.111:8554 ./rtsp-simple-server' # start rtsp server
 alias ssdisable='sudo systemctl disable ' # disable a service with systemctl
 alias ssenable='sudo systemctl enable ' # enable a service with systemctl
 alias ssreload='sudo systemctl daemon-reload' # reload systemd manager configuration
@@ -179,6 +195,8 @@ alias twig='_twig() { "$@" | tee ~/temp/twig.log ;}; _twig ' # log stdout of a c
 alias untar='tar -zxvf ' # unpack a .tar file
 alias update="sudo apt-get update && sudo apt-get upgrade" # shorter update
 alias vlca='cvlc --no-video -q ' # play audio only
+alias webcam='sudo ffmpeg -f v4l2 -framerate 30 -video_size 640x480 -i /dev/video0 -f rtsp -rtsp_transport tcp rtsp://myuser:mypass@10.0.0.114:8554/livestream' # pipe webcam into rtsp server
+#alias webcam='sudo ffmpeg -f v4l2 -pix_fmt yuyv422 -framerate 10 -video_size 1280x720 -i /dev/video0 -b:v 1M -f rtsp -rtsp_transport tcp rtsp://myuser:mypass@10.0.0.114:8554/livestream' # start rtsp stream from webcam
 alias wget="wget -c " # continue, resume getting a partially-downloaded file
 alias woman='eg ' # like man
 alias yolo='rm -rf node_modules/ && rm package-lock.json && npm install' # reinstall a project’s dependencies
@@ -187,7 +205,7 @@ alias ytdl="yt-dlp " # easier to remember command to download a video from YouTu
 alias zshrc="nano ~/.zshrc" # edit zshrc
 
 # suffix aliases
-alias -s {ahk,bat,bin,cs,css,csv,h,html,ini,js,json,log,lua,md,ps1,py,rc,reg,sh,ts,txt,xml,yml}=nano
+#alias -s {ahk,bat,bin,cs,css,csv,h,html,ini,js,json,log,lua,md,ps1,py,rc,reg,sh,ts,txt,xml,yml}=nano
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

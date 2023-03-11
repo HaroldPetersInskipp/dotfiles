@@ -131,3 +131,5 @@ export PATH="$HOME/.local/bin:$PATH"
   export PATH="${PATH}:/home/pi/.cargo/bin/navi"
 
   export PATH="${PATH}:/home/pi/.cargo/bin/navi"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
