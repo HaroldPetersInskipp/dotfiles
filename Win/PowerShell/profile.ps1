@@ -1,5 +1,3 @@
-clear
-
 # PowerShell parameter completion shim for the dotnet CLI
 Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
     param($commandName, $wordToComplete, $cursorPosition)
@@ -49,7 +47,8 @@ Set-Item -Path Function:prompt -Value $Prompt -Force
 Import-Module PSColor
 
 Import-Module 'C:\tools\gsudo\v2.0.4\gsudoModule.psd1'
-
+$env:PYTHONIOENCODING="utf-8"
+iex "$(thefuck --alias)"
 Import-Module -Name Terminal-Icons
 
 # Chocolatey profile
@@ -67,13 +66,30 @@ Set-PSDebug -Strict
 # when you used up arrow, which can be useful if you forget the exact
 # string you started the search on.
 Set-PSReadLineOption -HistorySearchCursorMovesToEnd
-Set-PSReadLineOption -MaximumHistoryCount 10000
-Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
+# Set MaximumHistoryCount to 10000
+Set-PSReadLineOption -MaximumHistoryCount 10000
+# Enable IntelliSense based on history
+Set-PSReadLineOption -PredictionSource History
+# Shows navigable menu of all options when hitting Tab
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+$webhookUri = Get-Content -Path "C:\Users\Bannd\Downloads\Cryo\peek_webhook.txt" | Out-String
 
 # User created functions
+function Invoke-CommandWithHelp {
+    $lastCommand = Get-History -Count 1 | Select-Object -ExpandProperty CommandLine
+    if ($lastCommand -match '-h\b') {
+        $helpCommand = $lastCommand -replace '-h\b', '--help'
+        $helpOutput = Invoke-Expression $helpCommand -ErrorAction SilentlyContinue
+        if ($helpOutput -match '--help') {
+            Invoke-Expression $helpCommand
+            return
+        }
+    }
+    Invoke-History -Count 1
+}
+
 function Edit-Profile { notepad++.exe $PROFILE.AllUsersAllHosts }
 function Clear-Prompt { clear }
 function CD-1 { cd .. }
@@ -122,10 +138,15 @@ function Runlast-Sudo { gsudo !! }
 function Sudo-Status { gsudo status }
 function Get-MyIPAddress { Invoke-RestMethod -Uri "https://api.ipify.org" }
 function Get-Emojis { C:\Windows\system32\wsl.exe /home/pirate/.local/bin/em -s $args }
+function Start-Whisper { whisper $args --model medium.en --fp16 False -f json -o C:\Users\Bannd\Downloads\Cryo\Whisper }
+function Get-WiFi { netsh wlan show profiles | Select-String "All User Profile" | ForEach-Object { $_.ToString().Split(":")[1].Trim()} | ForEach-Object { echo "SSID: $_"; netsh wlan show profile $_ key=clear | Select-String "Key Content" } }
+function Peek-File { Invoke-RestMethod -Uri $webhookUri -Method 'post' -Body @{'username' = 'Peek'; 'content' = Get-Content -Path "$args" | Out-String } }
+function Use-vcpkg { C:\Users\Bannd\Downloads\Cryo\CPP\vcpkg\vcpkg.exe $args }
+function Open-Folder { explorer . }
 
 # User created aliases
-Set-Alias -Name "Python" -Value "C:\Python39\python.exe"
-Set-Alias -Name "Py" -Value "C:\Python39\python.exe"
+Set-Alias -Name "Python" -Value "python.exe"
+Set-Alias -Name "Py" -Value "python.exe"
 Set-Alias -Name "Admin" -Value Open-Admin
 Set-Alias -Name "Pro" -Value Edit-Profile
 Set-Alias -Name "C" -Value Clear-Prompt
@@ -133,6 +154,7 @@ Set-Alias -Name ".." -Value CD-1
 Set-Alias -Name "..." -Value CD-2
 Set-Alias -Name "...." -Value CD-3
 Set-Alias -Name "Down" -Value CD-Downloads
+Set-Alias -Name "Downloads" -Value CD-Downloads
 Set-Alias -Name "Nano" -Value Git-Nano
 Set-Alias -Name "Vim" -Value Git-Vim
 Set-Alias -Name "Awk" -Value Git-Awk
@@ -190,3 +212,10 @@ Set-Alias -Name "Status" -Value Sudo-Status
 Set-Alias -Name "IP" -Value Get-MyIPAddress
 Set-Alias -Name "EM" -Value Get-Emojis
 Set-Alias -Name "Emoji" -Value Get-Emojis
+Set-Alias -Name "Ear" -Value Start-Whisper
+Set-Alias -Name "WiFi" -Value Get-WiFi
+Set-Alias -Name "Peek" -Value Peek-File
+Set-Alias -Name "-h" -Value Invoke-CommandWithHelp
+Set-Alias -Name "vcpkg" -Value Use-vcpkg
+Set-Alias -Name "open" -Value Open-Folder
+Set-Alias -Name "folder" -Value Open-Folder
