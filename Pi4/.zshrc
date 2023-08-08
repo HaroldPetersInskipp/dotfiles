@@ -124,11 +124,14 @@ alias ..='cd .. ' # lazy
 alias ...='cd ../.. ' # very lazy
 alias ....='cd ../../.. ' # plus ultra lazy
 alias 777='chmod -R 777 ' # set permissions to 777
+alias apt='sudo apt' # ensures that you have the necessary privileges to uninstall or remove packages
 alias audio='cvlc --no-video -q ' # play audio only
+alias autoremove='sudo apt autoremove' # removes unwanted packages
 alias bashrc="nano ~/.bashrc " # edit bashrc
 alias bat='bat --theme="Visual Studio Dark+" ' # pretty bat
 alias brootpi='br -d -s --show-root-fs -T ' # navigate filesystem
 alias c='clear ' # shorter clear
+alias calc='bc' # easier to remember
 alias cat='bat --theme="Visual Studio Dark+" ' # pretty cat
 alias cato='bat -P --theme="Visual Studio Dark+" ' # pretty cat -o
 alias cd..='cd .. ' # fix typo
@@ -145,6 +148,7 @@ alias edit='nano ' # edit files
 alias eg='eg --pager-cmd "less -sR" ' # get examples for how a command is used
 alias exa='exa -al -F -h --group-directories-first --color-scale ' # like ls but better
 alias exe='chmod +x ' # make executable
+alias ecode='echo $?' # print last exit code
 alias fh='cd ~ && audio FH.mp3' # plays an audio file
 alias garden='cd ~ && audio BG.mp3' # plays an audio file
 alias getip="curl icanhazip.com" # get current external IP
@@ -158,6 +162,7 @@ alias how='function hdi(){ howdoi $* -a -c -n 3 ;}; hdi' # shorter howdoi alt
 alias howdoi='function hdi(){ howdoi $* -a -c -n 3 ;}; hdi' # when idk how to do things
 alias hs='history | grep ' # search command history
 alias ht='htop' # shorter htop
+alias install='sudo apt install' # install packages with apt
 alias jobs='jobs -l ' # list jobs
 alias ln='ln -i ' # link file interactively
 alias ls='ls -aFhv --color=auto --group-directories-first ' # better ls output
@@ -190,11 +195,14 @@ alias ssreload='sudo systemctl daemon-reload' # reload systemd manager configura
 alias ssrestart='sudo systemctl restart ' # restart a service with systemctl
 alias ssstart='sudo systemctl start ' # start a service with systemctl
 alias ssstop='sudo systemctl stop ' # stop a service with systemctl
+alias ssstatus='sudo systemctl status' # check status with systemctl
 alias tarup='tar czvf ' # pack a .tar file
 alias twig='_twig() { "$@" | tee ~/temp/twig.log ;}; _twig ' # log stdout of a command to file
+alias uninstall='sudo apt remove' # uninstall packages with apt
 alias untar='tar -zxvf ' # unpack a .tar file
 alias update="sudo apt-get update && sudo apt-get upgrade" # shorter update
 alias vlca='cvlc --no-video -q ' # play audio only
+alias weather='curl wttr.in' # get the forcast
 alias webcam='sudo ffmpeg -f v4l2 -framerate 30 -video_size 640x480 -i /dev/video0 -f rtsp -rtsp_transport tcp rtsp://myuser:mypass@10.0.0.114:8554/livestream' # pipe webcam into rtsp server
 #alias webcam='sudo ffmpeg -f v4l2 -pix_fmt yuyv422 -framerate 10 -video_size 1280x720 -i /dev/video0 -b:v 1M -f rtsp -rtsp_transport tcp rtsp://myuser:mypass@10.0.0.114:8554/livestream' # start rtsp stream from webcam
 alias wget="wget -c " # continue, resume getting a partially-downloaded file
