@@ -143,6 +143,7 @@ function Get-WiFi { netsh wlan show profiles | Select-String "All User Profile" 
 function Peek-File { Invoke-RestMethod -Uri $webhookUri -Method 'post' -Body @{'username' = 'Peek'; 'content' = Get-Content -Path "$args" | Out-String } }
 function Use-vcpkg { C:\Users\Bannd\Downloads\Cryo\CPP\vcpkg\vcpkg.exe $args }
 function Open-Folder { explorer . }
+function Run-Linters { mega-linter-runner $args }
 
 # User created aliases
 Set-Alias -Name "Python" -Value "python.exe"
@@ -219,3 +220,4 @@ Set-Alias -Name "-h" -Value Invoke-CommandWithHelp
 Set-Alias -Name "vcpkg" -Value Use-vcpkg
 Set-Alias -Name "open" -Value Open-Folder
 Set-Alias -Name "folder" -Value Open-Folder
+Set-Alias -Name "lint" -Value Run-Linters
