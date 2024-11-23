@@ -123,7 +123,11 @@ function backup(){
 alias ..='cd .. ' # lazy
 alias ...='cd ../.. ' # very lazy
 alias ....='cd ../../.. ' # plus ultra lazy
-alias 777='chmod -R 777 ' # set permissions to 777
+alias .....='cd ../../../..' # you get the idea
+alias 644='chmod -R 644' # set permissions recursively to 644, read/write, others can read only
+alias 666='chmod -R 666' # set permissions recursively to 666, anyone can read/write
+alias 755='chmod -R 755' # set permissions recursively to 755, read/write/execute, others can read and execute it but not alter
+alias 777='chmod -R 777' # set permissions recursively to 777, anyone can read/write/execute
 alias apt='sudo apt' # ensures that you have the necessary privileges to uninstall or remove packages
 alias audio='cvlc --no-video -q ' # play audio only
 alias autoremove='sudo apt autoremove' # removes unwanted packages
@@ -135,12 +139,14 @@ alias calc='bc' # easier to remember
 alias cat='bat --theme="Visual Studio Dark+" ' # pretty cat
 alias cato='bat -P --theme="Visual Studio Dark+" ' # pretty cat -o
 alias cd..='cd .. ' # fix typo
+alias check='~/check.sh' # check if ip addresses can be reached
 alias child='tldr ' # see man and woman
 alias close='_close() { echo $RANDOM | tee ~/Downloads/ColdStorage/close.txt ;}; _close ' # close last opened
 alias count='grep -ci' # displays the number of occurrences of keyword in a file
 alias cp="cp -i " # copy file interactively
 alias derp='tldr $(fc -ln -1)' # when you forget a command
 alias df='df -h --total ' # human readable disk space usage
+alias dlog='nano /var/log/daemon.log' # check daemon.log
 alias docker='sudo docker ' # auto-prefix docker commands with sudo
 alias doom='_doom() { chocolate-doom -iwad "$@" ;}; doom' # runs a doom wad
 alias down='cd ~/Downloads ' # change active directory to the Downloads directory
@@ -158,15 +164,19 @@ alias hc='history |  cut -c24- | sort  | uniq -c | sort -nr | head -n 100 ' # ge
 alias hdi='function hdi(){ howdoi $* -a -c -n 3 ;}; hdi' # shorter howdoi
 alias highlight='_highlight() { less -JMINsp$@ ;}; _highlight' # highlight all occurrences of a keyword in a file
 alias hl='_hl() { less -JMINsp$@ ;}; _hl' # shorter highlight
+alias home='sudo -u homeassistant -H -s' # switch to homeassitant user
 alias how='function hdi(){ howdoi $* -a -c -n 3 ;}; hdi' # shorter howdoi alt
 alias howdoi='function hdi(){ howdoi $* -a -c -n 3 ;}; hdi' # when idk how to do things
 alias hs='history | grep ' # search command history
 alias ht='htop' # shorter htop
 alias install='sudo apt install' # install packages with apt
 alias jobs='jobs -l ' # list jobs
+alias lf="ls -l | egrep -v '^d'" # files only
+alias ldir="ls -l | egrep '^d'" # directories only
 alias ln='ln -i ' # link file interactively
 alias ls='ls -aFhv --color=auto --group-directories-first ' # better ls output
 alias lsa='exa -al -F -h --group-directories-first --color-scale ' # like ls but better alt
+alias lx='ls -lXBh' # sort by extension
 alias mcd='_mcd() { mkdir -p "$1" && cd "$1" ;}; _mcd' # make a directory and cd to it
 alias mkdir='mkdir -pv ' # make directory and parent directories, verbose
 alias mp3='cvlc --no-video -q *.mp3 ' # play mp3 audio with vlc
@@ -188,7 +198,7 @@ alias rn='sudo mv ' # rename/move a file shorter
 alias rename='mv ' # rename/move a file
 alias rmi='rm -rI' # remove file recursive interactively
 alias rmf='rm -rfv' # remove file recursive with force verbose
-alias rtsp='cd /home/pi/Downloads/Temp && RTSP_RTSPADDRESS=10.0.0.111:8554 ./rtsp-simple-server' # start rtsp server
+#alias rtsp='cd /home/pi/Downloads/Temp && RTSP_RTSPADDRESS=10.0.0.111:8554 ./rtsp-simple-server' # start rtsp server
 alias ssdisable='sudo systemctl disable ' # disable a service with systemctl
 alias ssenable='sudo systemctl enable ' # enable a service with systemctl
 alias ssreload='sudo systemctl daemon-reload' # reload systemd manager configuration
@@ -196,6 +206,7 @@ alias ssrestart='sudo systemctl restart ' # restart a service with systemctl
 alias ssstart='sudo systemctl start ' # start a service with systemctl
 alias ssstop='sudo systemctl stop ' # stop a service with systemctl
 alias ssstatus='sudo systemctl status' # check status with systemctl
+alias syslog='nano /var/log/syslog' # check syslog
 alias tarup='tar czvf ' # pack a .tar file
 alias twig='_twig() { "$@" | tee ~/temp/twig.log ;}; _twig ' # log stdout of a command to file
 alias uninstall='sudo apt remove' # uninstall packages with apt
@@ -203,7 +214,7 @@ alias untar='tar -zxvf ' # unpack a .tar file
 alias update="sudo apt-get update && sudo apt-get upgrade" # shorter update
 alias vlca='cvlc --no-video -q ' # play audio only
 alias weather='curl wttr.in' # get the forcast
-alias webcam='sudo ffmpeg -f v4l2 -framerate 30 -video_size 640x480 -i /dev/video0 -f rtsp -rtsp_transport tcp rtsp://myuser:mypass@10.0.0.114:8554/livestream' # pipe webcam into rtsp server
+#alias webcam='sudo ffmpeg -f v4l2 -framerate 30 -video_size 640x480 -i /dev/video0 -f rtsp -rtsp_transport tcp rtsp://myuser:mypass@10.0.0.114:8554/livestream' # pipe webcam into rtsp server
 #alias webcam='sudo ffmpeg -f v4l2 -pix_fmt yuyv422 -framerate 10 -video_size 1280x720 -i /dev/video0 -b:v 1M -f rtsp -rtsp_transport tcp rtsp://myuser:mypass@10.0.0.114:8554/livestream' # start rtsp stream from webcam
 alias wget="wget -c " # continue, resume getting a partially-downloaded file
 alias woman='eg ' # like man
@@ -227,3 +238,6 @@ source ~/.config/broot/launcher/bash/br
 
 . /usr/share/autojump/autojump.sh
 . ~/.local/share/lscolors.sh
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
