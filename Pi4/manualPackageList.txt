@@ -10,6 +10,7 @@ apt-transport-https
 apt-utils
 arandr
 aria2
+audacity
 autoconf
 autoconf-archive
 autogen
@@ -26,12 +27,14 @@ bluealsa
 bluetooth
 bluez
 broot:armhf
+browsh
 bsdmainutils
 bsdutils
 btrfs-progs
 buffer
 build-essential
 ca-certificates
+chafa
 chocolate-doom
 chromium
 cifs-utils
@@ -62,6 +65,8 @@ dillo
 dirmngr
 dmidecode
 dmsetup
+dns-root-data
+dnsutils
 docker-ce
 docker-ce-cli
 docker-ce-rootless-extras
@@ -74,12 +79,14 @@ ed
 erlang-base
 erlang-dev
 erlang-tools
+espeak-ng
 ethtool
 exa
 fake-hwclock
 fbset
 fdisk
 ffmpeg
+fim
 findutils
 firefox-esr
 firmware-atheros
@@ -137,9 +144,9 @@ hostname
 htop
 hunspell-en-gb
 hyphen-en-gb
+idn2
 ifupdown
 imagemagick
-influxdb
 init
 init-system-helpers
 iproute2
@@ -161,6 +168,7 @@ libapt-pkg5.0
 libargon2-1
 libasound2-dev
 libassuan0
+libatlas-base-dev
 libattr1
 libaubio5
 libaudit-common
@@ -207,6 +215,7 @@ libfreetype6-dev
 libgcc1
 libgcrypt20
 libgcrypt20-dev
+libgdbm-dev
 libgif-dev
 libgl1-mesa-dev
 libgl1-mesa-dri
@@ -237,12 +246,15 @@ libjson-c3
 libjudy-dev
 libkmod2
 libksba8
+liblapack-dev
+liblapack3
 libldap-2.4-2
 libldap-common
 liblocale-gettext-perl
 liblognorm5
 liblz4-1
 liblz4-dev
+liblzma-dev
 liblzma5
 libmnl-dev
 libmnl0
@@ -262,6 +274,7 @@ libnl-3-dev
 libnl-genl-3-dev
 libnl-route-3-dev
 libnpth0
+libnss3-dev
 libopenal-dev
 libopenjp2-7
 libp11-kit0
@@ -331,6 +344,7 @@ libtiff5
 libtinfo6
 libtool
 libturbojpeg0
+libturbojpeg0-dev
 libudev1
 libunistring2
 libuuid1
@@ -365,6 +379,7 @@ libxtables12
 libyaml-cpp0.6
 libzstd1
 lightdm
+lighttpd
 locales
 login
 logrotate
@@ -378,7 +393,6 @@ magic-wormhole
 make
 man-db
 manpages-dev
-mariadb-server
 mawk
 mc
 menu-xdg
@@ -393,9 +407,11 @@ nasm
 ncdu
 ncurses-base
 ncurses-bin
+neofetch
 net-tools
 netbase
 netcat
+netcat-openbsd
 nfs-common
 nmap
 nnn
@@ -411,6 +427,7 @@ php-mysql
 php-smbclient
 php7.3
 php7.3-bz2
+php7.3-cgi
 php7.3-curl
 php7.3-gd
 php7.3-gmp
@@ -423,7 +440,16 @@ php7.3-xml
 php7.3-zip
 pi-apps-08f5abf3
 pi-apps-2fe85b57
+pi-apps-5b1295ed
+pi-apps-5b1f810b
+pi-apps-6939c8a1
+pi-apps-8c5edefe
+pi-apps-ae0d519a
+pi-apps-b4e6ceea
+pi-apps-b8e94dcf
+pi-apps-de4729b3
 pi-apps-e5cfa7db
+pi-apps-ea9e7d84
 pi-bluetooth
 pi-package
 piclone
@@ -493,7 +519,6 @@ raspinfo
 rc-gui
 readline-common
 realvnc-vnc-server
-redis
 rhasspy
 rng-tools
 rp-prefapps
@@ -510,6 +535,7 @@ samba-common-bin
 sc3-plugins-server
 sed
 sensible-utils
+shairport-sync
 shellcheck
 smbclient
 snapd
@@ -531,6 +557,7 @@ tasksel-data
 telegraf
 thonny
 timidity
+tk-dev
 tmux
 tree
 tripletriad
@@ -546,6 +573,7 @@ v4l-utils
 vim-common
 vim-tiny
 vl805fw
+vlc
 vlc-bin
 vlc-plugin-skins2
 w3m-img
@@ -574,4 +602,3 @@ zlib1g-dev
 zsh
 zsh-autosuggestions
 zsh-syntax-highlighting
-
